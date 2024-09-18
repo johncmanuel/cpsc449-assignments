@@ -60,7 +60,7 @@ func main() {
 		}
 
 		// If method is GET, set editor to VSCode
-		// Else, editor stays Neovim
+		// Otherwise if method is POST, set editor to Emacs
 		switch r.Method {
 		case http.MethodGet:
 			person.Editor = "VSCode"
