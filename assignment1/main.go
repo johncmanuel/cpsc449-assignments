@@ -61,8 +61,11 @@ func main() {
 
 		// If method is GET, set editor to VSCode
 		// Else, editor stays Neovim
-		if r.Method == http.MethodGet {
+		switch r.Method {
+		case http.MethodGet:
 			person.Editor = "VSCode"
+		case http.MethodPost:
+			person.Editor = "Emacs"
 		}
 
 		w.Header().Set("Content-Type", "application/json")
